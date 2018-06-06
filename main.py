@@ -11,10 +11,6 @@ conn = sqlite3.connect('database.db')
 # print("Table created successfully")
 # conn.close()
 
-import Image
-
-img = Image.open('me.jpg')
-img.show()
 
 
 @app.route('/')
