@@ -10,6 +10,13 @@ conn = sqlite3.connect('database.db')
 # conn.execute('CREATE TABLE students (name TEXT, addr TEXT, city TEXT, pin TEXT)')
 # print("Table created successfully")
 
+
+import Image
+
+image = Image.open('me.jpg')
+image.show()
+
+
 @app.route('/')
 def home():
    return render_template('home.html')
