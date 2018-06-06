@@ -27,16 +27,14 @@
 
 
 
-      <form>
+      <form action="{{url_for('deleteVehicle')}}" method="POST" enctype="multipart/form-data">
+          <input type="text" value="" name="deleteVehicle" placeholder="deleteVehicle">
+         <input type="submit" value="delete">
+      </form>
 
-          <h3>Enter course</h3>
-			<form action="{{url_for('vehicleName')}}" method="POST" enctype="multipart/form-data">
-	      <input type="text" value="" name="Name" placeholder="Name">
-               <h3>Enter Day</h3>
-			<form action="{{url_for('vehicleName')}}" method="POST" enctype="multipart/form-data">
-	      <input type="text" value="" name="Name" placeholder="Name">
-	      <input type="submit" value="Search">
-
+      <form action="{{url_for('editVehicle')}}" method="POST" enctype="multipart/form-data">
+          <input type="text" value="" name="editVehicle" placeholder="editVehicle">
+         <input type="submit" value="edit">
       </form>
 
       <br>
