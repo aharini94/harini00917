@@ -9,12 +9,12 @@ conn = sqlite3.connect('database.db')
 
 # conn.execute('CREATE TABLE students (name TEXT, addr TEXT, city TEXT, pin TEXT)')
 # print("Table created successfully")
-
+# conn.close()
 
 import Image
 
-image = Image.open('me.jpg')
-image.show()
+img = Image.open('me.jpg')
+img.show()
 
 
 @app.route('/')
