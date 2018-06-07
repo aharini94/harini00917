@@ -7,7 +7,7 @@ import sqlite3
 conn = sqlite3.connect('database.db')
 # print("Opened database successfully")
 
-conn.execute('CREATE TABLE xyz (name TEXT, grade TEXT, room TEXT, tel TEXT, picture TEXT, keyword TEXT)')
+conn.execute('CREATE TABLE xy (name TEXT, grade TEXT, room TEXT, tel TEXT, picture TEXT, keyword TEXT)')
 print("Table created successfully")
 conn.close()
 
@@ -25,17 +25,17 @@ def new_student():
 def addrec():
    if request.method == 'POST':
       try:
-         nm = request.form['nm']
-         gd = request.form['gd']
-         rm = request.form['rm']
-         tl = request.form['tl']
-         pc = request.form['pc']
-         kw = request.form['kw']
+         name = request.form['name']
+         grade = request.form['grade']
+         room = request.form['room']
+         tel = request.form['tel']
+         picture = request.form['picture']
+         keyword = request.form['keyword']
          
          with sql.connect("database.db") as con:
             cur = con.cursor()
             
-            cur.execute("INSERT INTO xyz (name,grade,room,tel,picture,keyword) VALUES (?,?,?,?,?,?)",(nm,gd,rm,tl,pc,kw) )
+            cur.execute("INSERT INTO xy (name,grade,room,tel,picture,keyword) VALUES (?,?,?,?,?,?)",(name,grade,room,tel,picture,keyword) )
             
             con.commit()
             msg = "Record successfully added"
@@ -53,7 +53,7 @@ def list():
    con.row_factory = sql.Row
    
    cur = con.cursor()
-   cur.execute("select * from xyz")
+   cur.execute("select * from xy")
    
    rows = cur.fetchall();
    return render_template("list.html",rows = rows)
