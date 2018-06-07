@@ -7,7 +7,7 @@ import sqlite3
 conn = sqlite3.connect('database.db')
 # print("Opened database successfully")
 
-# conn.execute('CREATE TABLE students (name TEXT, addr TEXT, city TEXT, pin TEXT)')
+# conn.execute('CREATE TABLE students (namem TEXT, grade TEXT, room TEXT, telnum TEXT, picture TEXT, keyword TEXT)')
 # print("Table created successfully")
 # conn.close()
 
@@ -26,14 +26,16 @@ def addrec():
    if request.method == 'POST':
       try:
          nm = request.form['nm']
-         addr = request.form['add']
-         city = request.form['city']
-         pin = request.form['pin']
+         gd = request.form['gd']
+         rm = request.form['rm']
+         tl = request.form['tl']
+         pc = request.form['pc']
+         kw = request.form['kw']
          
          with sql.connect("database.db") as con:
             cur = con.cursor()
             
-            cur.execute("INSERT INTO students (name,addr,city,pin) VALUES (?,?,?,?)",(nm,addr,city,pin) )
+            cur.execute("INSERT INTO students (name,grade,room,telnum,picture,keyword) VALUES (?,?,?,?,?,?)",(nm,gd,rm,tl,pc,kw) )
             
             con.commit()
             msg = "Record successfully added"

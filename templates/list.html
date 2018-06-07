@@ -10,17 +10,21 @@
       <table border = 1>
          <thead>
             <td>Name</td>
-            <td>Address</td>
-            <td>city</td>
-            <td>Pincode</td>
+            <td>Grade</td>
+            <td>Room</td>
+            <td>Telnum</td>
+            <td>Picture</td>
+            <td>Keyword</td>
          </thead>
 
          {% for row in rows %}
          <tr>
             <td>{{row["name"]}}</td>
-            <td>{{row["addr"]}}</td>
-            <td> {{ row["city"]}}</td>
-            <td>{{row['pin']}}</td>	
+            <td>{{row["grade"]}}</td>
+            <td> {{ row["room"]}}</td>
+            <td>{{row['telnum']}}</td>
+            <td> {{ row["picture"]}}</td>
+            <td>{{row['keyword']}}</td>
          </tr>
          {% endfor %}
       </table>
