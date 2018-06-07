@@ -5,7 +5,7 @@ app = Flask(__name__)
 import sqlite3
 
 conn = sqlite3.connect('database.db')
- print("Opened database successfully")
+# print("Opened database successfully")
 
 conn.execute('CREATE TABLE students (namem TEXT, grade TEXT, room TEXT, telnum TEXT, picture TEXT, keyword TEXT)')
 print("Table created successfully")
