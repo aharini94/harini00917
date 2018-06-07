@@ -32,7 +32,7 @@ def addrec():
          picture = request.form['picture']
          keyword = request.form['keyword']
          
-         with sql.connect("database.db") as con:
+            con = sql.connect("database.db")
             cur = con.cursor()
             
             cur.execute("INSERT INTO xy (name,grade,room,tel,picture,keyword) VALUES (?,?,?,?,?,?)",(name,grade,room,tel,picture,keyword) )
