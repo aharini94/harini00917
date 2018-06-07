@@ -7,7 +7,7 @@ import sqlite3
 conn = sqlite3.connect('database.db')
 # print("Opened database successfully")
 
-conn.execute('CREATE TABLE students (namem TEXT, grade TEXT, room TEXT, telnum TEXT, picture TEXT, keyword TEXT)')
+conn.execute('CREATE TABLE assign1 (namem TEXT, grade TEXT, room TEXT, telnum TEXT, picture TEXT, keyword TEXT)')
 print("Table created successfully")
 conn.close()
 
@@ -35,7 +35,7 @@ def addrec():
          with sql.connect("database.db") as con:
             cur = con.cursor()
             
-            cur.execute("INSERT INTO students (name,grade,room,telnum,picture,keyword) VALUES (?,?,?,?,?,?)",(nm,gd,rm,tl,pc,kw) )
+            cur.execute("INSERT INTO assign1 (name,grade,room,telnum,picture,keyword) VALUES (?,?,?,?,?,?)",(nm,gd,rm,tl,pc,kw) )
             
             con.commit()
             msg = "Record successfully added"
@@ -53,7 +53,7 @@ def list():
    con.row_factory = sql.Row
    
    cur = con.cursor()
-   cur.execute("select * from students")
+   cur.execute("select * from assign1")
    
    rows = cur.fetchall();
    return render_template("list.html",rows = rows)
