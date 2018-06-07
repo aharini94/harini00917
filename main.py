@@ -7,9 +7,9 @@ import sqlite3
 conn = sqlite3.connect('database.db')
 # print("Opened database successfully")
 
-#conn.execute('CREATE TABLE assign1 (name TEXT, grade TEXT, room TEXT, tel TEXT, picture TEXT, keyword TEXT)')
-#print("Table created successfully")
-#conn.close()
+conn.execute('CREATE TABLE assign1 (name TEXT, grade TEXT, room TEXT, tel TEXT, picture TEXT, keyword TEXT)')
+print("Table created successfully")
+conn.close()
 
 
 
