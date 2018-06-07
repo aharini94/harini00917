@@ -7,7 +7,7 @@ import sqlite3
 conn = sqlite3.connect('database.db')
 # print("Opened database successfully")
 
-conn.execute('CREATE TABLE assign1 (namem TEXT, grade TEXT, room TEXT, telnum TEXT, picture TEXT, keyword TEXT)')
+conn.execute('CREATE TABLE assign1 (name TEXT, grade TEXT, room TEXT, tel TEXT, picture TEXT, keyword TEXT)')
 print("Table created successfully")
 conn.close()
 
@@ -35,7 +35,7 @@ def addrec():
          with sql.connect("database.db") as con:
             cur = con.cursor()
             
-            cur.execute("INSERT INTO assign1 (name,grade,room,telnum,picture,keyword) VALUES (?,?,?,?,?,?)",(nm,gd,rm,tl,pc,kw) )
+            cur.execute("INSERT INTO assign1 (name,grade,room,tel,picture,keyword) VALUES (?,?,?,?,?,?)",(nm,gd,rm,tl,pc,kw) )
             
             con.commit()
             msg = "Record successfully added"
