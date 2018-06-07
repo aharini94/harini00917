@@ -7,9 +7,9 @@ import sqlite3
 conn = sqlite3.connect('database.db')
 # print("Opened database successfully")
 
-conn.execute('CREATE TABLE xy (name TEXT, grade TEXT, room TEXT, tel TEXT, picture TEXT, keyword TEXT)')
-print("Table created successfully")
-conn.close()
+#conn.execute('CREATE TABLE xy (name TEXT, grade TEXT, room TEXT, tel TEXT, picture TEXT, keyword TEXT)')
+#print("Table created successfully")
+#conn.close()
 
 
 
@@ -19,7 +19,37 @@ def home():
 
 @app.route('/enternew')
 def new_student():
-   return render_template('student.html')
+ #  return render_template('student.html')
+
+   import csv
+
+   with open('People.csv') as csvfile:
+       readCSV = csv.reader(csvfile, delimiter=',')
+       names = []
+       grades = []
+       rooms = []
+       telephones = []
+       pictures = []
+       keywords = []
+       for row in readCSV:
+           name = row[0]
+           grade = row[1]
+           room = row[2]
+           telephone = row[3]
+           picture = row[4]
+           keyword = row[5]
+           names.append(name)
+           grades.append(grade)
+           rooms.append(room)
+           telephones.append(telephone)
+           pictures.append(picture)
+           keywords.append(keyword)
+       print(names)
+       print(grades)
+       print(rooms)
+       print(telephones)
+       print(pictures)
+       print(keywords)
 
 @app.route('/addrec',methods = ['POST', 'GET'])
 def addrec():
@@ -31,14 +61,11 @@ def addrec():
          tel = request.form['tel']
          picture = request.form['picture']
          keyword = request.form['keyword']
-         
-            con = sql.connect("database.db")
-            cur = con.cursor()
-            
-            cur.execute("INSERT INTO xy (name,grade,room,tel,picture,keyword) VALUES (?,?,?,?,?,?)",(name,grade,room,tel,picture,keyword) )
-            
-            con.commit()
-            msg = "Record successfully added"
+         con = sql.connect("database.db")
+         cur = con.cursor()
+         cur.execute("INSERT INTO xy (name,grade,room,tel,picture,keyword) VALUES (?,?,?,?,?,?)",(name,grade,room,tel,picture,keyword) )
+         con.commit()
+         msg = "Record successfully added"
       except:
          con.rollback()
          msg = "error in insert operation"
@@ -60,6 +87,12 @@ def list():
 
 if __name__ == '__main__':
    app.run(debug = True)
+
+
+
+
+
+
 
 
 
